@@ -1,0 +1,90 @@
+body {
+    position: relative;
+    background-color: #fdfdfd;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));;
+}
+
+
+
+h1, 
+.text-container {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 20px;
+    margin: 20px 20px 0 20px;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 7em;
+    height: 7em;
+    margin: 10px;
+}
+
+.card {
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border:solid 2px rgba(53, 53, 54, 0.185);
+    border-radius: 6px;
+    margin: 1.25em;
+    padding: 18px;
+    max-width: 24rem;
+}
+
+.card:hover {
+    cursor: pointer;
+    border: solid 2px #00000054;
+    transition: 0.5s;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: 500;
+}
+.email,
+.address {
+    opacity: 0.5;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(100, 100, 100, 0.4)
+     }
+
+     .modal {
+   width: 375px;
+   margin: 15% auto auto;
+   position: relative;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #778;
+    border-radius: 5px;
+    padding: 30px 20px;
+}
+
+.modal-close {
+    position: absolute;
+    right: 15px;
+    top: 5px;
+    cursor: pointer;
+    }
+
+.hidden {
+ display: none;
+  }
