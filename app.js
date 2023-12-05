@@ -6,6 +6,21 @@ const gridContainer = document.querySelector(".grid-container");
 const overlay = document.querySelector(".overlay");
 const modalContainer = document.querySelector(".modal-content");
 const modalClose = document.querySelector(".modal-close");
+const search = document.getElementById("search");
+
+// search engine
+
+search.addEventListener('keyup', e => {
+    let currentValue = e.target.value.toLowerCase();
+    let names = document.querySelectorAll('.name');
+    names.forEach(name => {
+        if (name.textContent.toLocaleLowerCase().includes(currentValue)) {
+            name.parentNode.parentNode.style.display = 'flex';
+        }else {
+            name.parentNode.parentNode.style.display = 'none';
+        }
+    })
+});
 
 // fetch data from API
 fetch(urlAPI)
@@ -50,15 +65,30 @@ function displayModal(index) {
     <h2 class="name">${name.first} ${name.last}</h2>
     <p class="email">${email}</p>
     <hr />
-    <p>${phone}</p>
+    <p class="tel">${phone}</p>
     <p class="address">${street.number} ${street.name} <br> ${city}, ${state} ${postcode}</p>
-    <p>Birthday:
+    <p class="birthday">Birthday:
     ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
-    </div>
+    </div> 
+    <button class="prev-btn" onclick="prevEmployee(${index})">Previous</button>
+    <button class="next-btn" onclick="nextEmployee(${index})">Next</button> 
     `;
     overlay.classList.remove("hidden");
     modalContainer.innerHTML = modalHTML;
     }
+
+    function prevEmployee(index) {
+        if (index > 0) {
+          displayModal(index - 1);
+        }
+      }
+      
+      function nextEmployee(index) {
+        if (index < employees.length - 1) {
+          displayModal(index + 1);
+        }
+      }
+      
 
     gridContainer.addEventListener('click', e => {
         // make sure the click is not on the gridContainer itself
@@ -72,4 +102,6 @@ function displayModal(index) {
 
         modalClose.addEventListener('click', () => {
             overlay.classList.add("hidden");
-            });
+            modalContainer.innerHTML = ""; // Clear the modal content
+          });
+           

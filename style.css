@@ -1,26 +1,58 @@
 body {
     position: relative;
     background-color: #fdfdfd;
+
 }
 
+.container {
+    display: block;
+    max-width: 90%;
+    align-items: center;
+    margin: auto;
+    
+}
 
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));;
 }
 
+header {
+   display: flex;
+    flex-direction: column;
+    margin:20px 0;
+}
 
-
+input,
 h1, 
 .text-container {
     font-family: 'Roboto', sans-serif;
 }
 
+input {
+    width: 23em;
+    height: 2.5em;
+    margin-right: 2.8em;
+    font-size: 18px;
+    outline: none;
+}
+
+input::placeholder {
+    opacity: 0.5;
+    padding-left: 10px;
+}
+
+input:focus,
+input:hover {
+    border: solid 2px #00000054;
+    transition: 0.5s;
+}
+
+
 h1 {
     text-transform: uppercase;
     font-weight: 400;
     font-size: 20px;
-    margin: 20px 20px 0 20px;
 }
 
 .avatar {
@@ -38,7 +70,7 @@ h1 {
     align-items: center;
     border:solid 2px rgba(53, 53, 54, 0.185);
     border-radius: 6px;
-    margin: 1.25em;
+    margin: 1rem 0;
     padding: 18px;
     max-width: 24rem;
 }
@@ -53,6 +85,10 @@ h1 {
     font-size: 20px;
     font-weight: 500;
 }
+
+hr,
+.tel,
+.birthday,
 .email,
 .address {
     opacity: 0.5;
@@ -80,11 +116,34 @@ h1 {
 
 .modal-close {
     position: absolute;
-    right: 15px;
+    right: 30px;
     top: 5px;
     cursor: pointer;
-    }
+    border: none;
+    background-color: #fff;
+  }
 
 .hidden {
  display: none;
   }
+
+  .modal-content .avatar {
+    width: 9em;
+    height: 9em;
+   
+  }
+.modal-content {
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prev-btn,
+.next-btn {
+    cursor: pointer;
+    border: none;
+    background-color: #fff;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+ 
